@@ -1,0 +1,22 @@
+<header class="header">
+  <a href="#" class="header-left">
+    <img
+      class="logo"
+      src="../../../assets/images/Basic+Store+Logo-788201926.png"
+      alt="dark logo of the store"
+    />
+    <h1 class="title">Basic <span>Store</span></h1>
+  </a>
+
+  <div class="header-right">
+    <a [routerLink]="['/product-form']" class="header-right-icon add-product">
+        <fa-icon [icon]="faPlus"></fa-icon>
+    </a>
+    <div class="header-right-icon user">
+      <fa-icon [icon]="faUser"></fa-icon>
+    </div>
+    <div class="header-right-icon cart">
+      <fa-icon [icon]="faCartShopping"></fa-icon>
+    </div>
+  </div>
+</header>

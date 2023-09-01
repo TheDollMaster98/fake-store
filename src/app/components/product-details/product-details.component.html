@@ -1,0 +1,37 @@
+<div class="loader" *ngIf="isloading">
+  <img class="loader-spinner" src='../../../assets/images/1158899.png' alt="spinning arrows loader">
+</div>
+
+<div class="details" *ngIf="!isloading">
+  <div class="details-left" *ngIf="product">
+    <img
+      src="{{ product.image }}"
+      alt="{{ product.title }}"
+      class="details-left-image"
+    />
+  </div>
+
+  <div class="details-right" *ngIf="product">
+    <div class="details-right-content">
+
+      <h2 class="details-right-title">
+        {{ product.title }}
+      </h2>
+
+      <div class="details-right-category">
+        {{ product.category }}
+      </div>
+
+      <p class="details-right-description">
+        {{ product.description }}
+      </p>
+
+      <div class="details-right-price">
+        {{ product.price | currency: "EUR" }}
+      </div>
+      <div class="details-right-btn-container">
+        <button>Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>

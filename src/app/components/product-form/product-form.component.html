@@ -1,0 +1,196 @@
+<form class="form" [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+  <div class="form-field title">
+    <label class="input-label" for="title"> Title: </label>
+    <input
+      id="title"
+      class="input"
+      name="title"
+      type="text"
+      formControlName="title"
+      aria-label="title"
+      aria-errormessage="errorTitle"
+      aria-invalid="true"
+    />
+
+    <div
+      *ngIf="
+        newProductForm.get('title')?.touched &&
+        newProductForm.get('title')?.invalid
+      "
+      id="errorTitle"
+    >
+      <div
+        id="error-title-required"
+        role="alert"
+        class="error-message"
+        *ngIf="newProductForm.get('title')?.hasError('required')"
+        aria-errormessagel="A title is required"
+        aria-live="assertive"
+      >
+        A title is required
+      </div>
+      <div
+        id="error-title-min"
+        role="alert"
+        class="error-message"
+        *ngIf="newProductForm.get('title')?.hasError('minlength')"
+        aria-errormessage="The title must be at least 5 characters long"
+        aria-live="assertive"
+      >
+        The title must be at least 5 characters long
+      </div>
+      <div
+        id="error-title-max"
+        class="error-message"
+        *ngIf="newProductForm.get('title')?.hasError('maxlength')"
+        aria-errormessage="The title can not be longer than 150 characters"
+        role="alert"
+        aria-live="assertive"
+      >
+        The title can not be longer than 150 characters
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field price">
+    <label class="input-label" for="price"> Price: </label>
+    <input
+      id="price"
+      class="input"
+      name="price"
+      type="number"
+      formControlName="price"
+      aria-label="price"
+      aria-errormessage="errorPrice"
+      aria-invalid="true"
+    />
+
+    <div
+      id="errorPrice"
+      *ngIf="
+        newProductForm.get('price')?.touched &&
+        newProductForm.get('price')?.invalid
+      "
+      id="errorPrice"
+    >
+      <div
+        id="error-price-required"
+        class="error-message"
+        *ngIf="newProductForm.get('price')?.hasError('required')"
+        aria-errormessage="The price is required, only numeric values are allowed"
+        role="alert"
+        aria-live="assertive"
+      >
+        The price is required, only numeric values are allowed
+      </div>
+      <div
+        id="error-price-min"
+        class="error-message"
+        *ngIf="newProductForm.get('price')?.hasError('min')"
+        aria-errormessage="The price can not be less than 0"
+        role="alert"
+        aria-live="assertive"
+      >
+        The price can not be less than 0
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field description">
+    <label class="input-label" for="description"> Description: </label>
+    <input
+      class="input"
+      id="description"
+      type="text"
+      name="description"
+      formControlName="description"
+      aria-label="description"
+      aria-errormessage="errorDescription"
+      aria-invalid="true"
+    />
+
+    <div
+      *ngIf="
+        newProductForm.get('description')?.touched &&
+        newProductForm.get('description')?.invalid
+      "
+      id="errorDescription"
+    >
+      <div
+        id="error-description-required"
+        class="error-message"
+        *ngIf="newProductForm.get('description')?.hasError('required')"
+        aria-errormessage="A description is required"
+        aria-live="assertive"
+      >
+        A description is required
+      </div>
+      <div
+        id="error-description-min"
+        class="error-message"
+        *ngIf="newProductForm.get('description')?.hasError('minlength')"
+        aria-errormessage="The description must be at least 30 characters long"
+        aria-live="assertive"
+      >
+        The description must be at least 30 characters long
+      </div>
+      <div
+        id="error-description-max"
+        class="error-message"
+        *ngIf="newProductForm.get('description')?.hasError('maxlength')"
+        aria-errormessage="The description can not be longer than 500 characters"
+        aria-live="assertive"
+      >
+        The description can not be longer than 500 characters
+      </div>
+    </div>
+  </div>
+
+  <div class="form-field category">
+    <label class="input-label" for="category"> Category: </label>
+    <select
+      class="input"
+      id="category"
+      type="text"
+      name="category"
+      formControlName="category"
+      aria-label="select category"
+      aria-errormessage="errorCategory"
+      aria-invalid="true"
+    >
+      <option disabled selected>Chose a category</option>
+      <option
+        *ngFor="let category of categories"
+        value="{{ category }}"
+        attr.aria-label="{{ category }}"
+      >
+        {{ category }}
+      </option>
+    </select>
+
+    <div
+      *ngIf="
+        newProductForm.get('category')?.invalid &&
+        newProductForm.get('category')?.touched
+      "
+      id="errorCategory"
+    >
+      <div
+        id="error-category-required"
+        class="error-message"
+        *ngIf="newProductForm.get('category')?.hasError('required')"
+        aria-errormessage="You must chose a category"
+        aria-live="assertive"
+      >
+        You must chose a category
+      </div>
+    </div>
+  </div>
+
+  <input
+      class="submit-btn"
+      type="submit"
+      [disabled]="newProductForm.invalid"
+      value="Create Product"
+    />
+</form>

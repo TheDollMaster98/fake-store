@@ -1,0 +1,31 @@
+footer {
+  height: 100%;
+  padding: 0 20px;
+  background-color: #111b1b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #8aa7a7;
+  .footer-left {
+    display: flex;
+    justify-content: space-between;
+    .phone, .mail {
+      .icon {
+        margin-right: 5px;
+      }
+    }
+    .mail {
+      margin-left: 20px;
+    }
+  }
+
+  .footer-right {
+    a {
+      img {
+        height: 20px;
+        vertical-align: bottom;
+        margin-left: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .header {
+    height: 65px;
+  }
+
+  .footer {
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .main {
+    display: flex;
+    flex-grow: 1;
+    overflow: auto;
+    .app-product-list {
+      max-width: 25%;
+    }
+  }
+}
+//router-outlet components style
+::ng-deep .app-product-form {
+  width: 100%;
+}
+::ng-deep .app-product-details {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.main {
+  overflow: hidden;
+  position: relative;
+
+}
+
+//aside parent compoinent style
+.app-product-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+main {
+  background-image: url('../assets/images/Basic+Store+Logo-788201926.png');
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: 70%;
+}
