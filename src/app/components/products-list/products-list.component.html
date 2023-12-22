@@ -1,22 +1,27 @@
 <aside>
   <div class="loader" *ngIf="isloading">
-    <img class="loader-spinner" src='../../../assets/images/1158899.png' alt="spinning arrows loader">
+    <img
+      class="loader-spinner"
+      src="../../../assets/images/1158899.png"
+      alt="spinning arrows loader"
+    />
   </div>
 
   <ul *ngIf="!isloading" class="product-list">
-
     <li class="product" *ngFor="let product of products">
-
-      <a [routerLink]="['/product', product.id]">
-
-        <img class="product-image" src='{{product.image}}' alt='{{product.title}}'>
+      <div [routerLink]="['/product', product.id]">
+        <img
+          class="product-image"
+          src="{{ product.image }}"
+          alt="{{ product.title }}"
+        />
         <h3 class="product-title">
-          {{product.title}}
+          {{ product.title }}
         </h3>
         <div class="product-price">
-          {{product.price | currency:'EUR'}}
+          {{ product.price | currency : "EUR" }}
         </div>
-      </a>
+      </div>
     </li>
   </ul>
 </aside>
